@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PracticeMaterialDesign</string>
+    <string name="action_settings">Settings</string>
+    <string name="places">Places</string>
+    <string name="foods">Foods</string>
+    <string name="museums">Museums</string>
+    <string name="shopping">Shopping</string>
+</resources>
