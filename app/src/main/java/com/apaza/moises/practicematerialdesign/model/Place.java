@@ -70,7 +70,7 @@ public class Place {
     private static List<Place> listFoods = new ArrayList<Place>();
     private static List<Place> listMuseums = new ArrayList<Place>();
 
-    public List<Place> getListPlaces(){
+    public static List<Place> getListPlaces(){
         listPlaces.add(new Place("Parque cretasico", "Lugar donde se puede ver dinosaurios", "Ruta 7 zona Fancesa", 4.2, R.drawable.places_tourist));
         listPlaces.add(new Place("La recoleta", "Descripcion de la recoleta", "Av brasil 1000", 4.2, R.drawable.places_tourist));
         listPlaces.add(new Place("Cementerio general", "Descripcion del cementerio", "Calle colon 123", 4.2, R.drawable.places_tourist));
@@ -81,7 +81,7 @@ public class Place {
         return listPlaces;
     }
 
-    public List<Place> getListFoods(){
+    public static List<Place> getListFoods(){
         listFoods.add(new Place("Restaurant 7 lunares", "Lugar donde se vende choripan", "Calle loa 1324", 4.2, R.drawable.restaurant));
         listFoods.add(new Place("Restaurant ", "Lugar donde se vende choripan", "Calle loa 1324", 4.2, R.drawable.restaurant));
         listFoods.add(new Place("Restaurant ", "Lugar donde se vende choripan", "Calle loa 1324", 4.2, R.drawable.restaurant));
@@ -92,7 +92,7 @@ public class Place {
         return listFoods;
     }
 
-    public List<Place> getListMuseums(){
+    public static List<Place> getListMuseums(){
         listMuseums.add(new Place("Museum 123", "Museo donde nacio la libertad de Bolivia", "Placa 25 de mayo", 4.2, R.drawable.museum));
         listMuseums.add(new Place("Museum ", "Museo donde nacio la libertad de Bolivia", "Placa 25 de mayo", 4.2, R.drawable.museum));
         listMuseums.add(new Place("Museum ", "Museo donde nacio la libertad de Bolivia", "Placa 25 de mayo", 4.2, R.drawable.museum));
@@ -101,6 +101,6 @@ public class Place {
         listMuseums.add(new Place("Museum ", "Museo donde nacio la libertad de Bolivia", "Placa 25 de mayo", 4.2, R.drawable.museum));
         listMuseums.add(new Place("Museum ", "Museo donde nacio la libertad de Bolivia", "Placa 25 de mayo", 4.2, R.drawable.museum));
 
-        return listPlaces;
+        return listMuseums;
     }
 }

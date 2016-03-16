@@ -5,4 +5,5 @@
     <string name="foods">Foods</string>
     <string name="museums">Museums</string>
     <string name="shopping">Shopping</string>
+    <string name="title_activity_tab_layout">TabLayoutActivity</string>
 </resources>
