@@ -1,4 +1,4 @@
-package com.apaza.moises.practicematerialdesign.tabLayout;
+package com.apaza.moises.practicematerialdesign;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.apaza.moises.practicematerialdesign.R;
 import com.apaza.moises.practicematerialdesign.model.Place;
 import com.bumptech.glide.Glide;
 

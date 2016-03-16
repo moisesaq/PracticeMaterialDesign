@@ -1,4 +1,4 @@
-package com.apaza.moises.practicematerialdesign.tabLayout;
+package com.apaza.moises.practicematerialdesign;
 
 import android.content.Context;
 import android.view.LayoutInflater;
