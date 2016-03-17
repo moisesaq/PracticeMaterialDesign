@@ -5,5 +5,15 @@
     <string name="foods">Foods</string>
     <string name="museums">Museums</string>
     <string name="shopping">Shopping</string>
+    <string name="action_add">Add</string>
+    <string name="action_favorite">Favorite</string>
     <string name="title_activity_tab_layout">TabLayoutActivity</string>
+    <string name="title_activity_detail">DetailActivity</string>
+
+    <string name="detail">
+        Tourism is a dynamic and competitive industry that requires the
+        ability to adapt constantly to customers
+        changing needs and desires, as the customer’s satisfaction,
+        safety and enjoyment are particularly the focus of tourism businesses.
+    </string>
 </resources>

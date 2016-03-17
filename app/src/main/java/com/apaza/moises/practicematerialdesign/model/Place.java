@@ -3,10 +3,11 @@ package com.apaza.moises.practicematerialdesign.model;
 
 import com.apaza.moises.practicematerialdesign.R;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Place {
+public class Place implements Serializable{
     private String name;
     private String description;
     private String address;
