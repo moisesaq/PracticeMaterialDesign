@@ -9,6 +9,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -37,8 +39,10 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         setToolbar();
-        if(getSupportActionBar() != null)
+        if(getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
+        }
 
         Intent i = getIntent();
         Place place = (Place)i.getSerializableExtra(EXTRA_PLACE);
@@ -68,6 +72,42 @@ public class DetailActivity extends AppCompatActivity {
                 .load(id)
                 .centerCrop()
                 .into(image);
+    }
+
+    private void showSnackBar(String msg) {
+        Snackbar
+                .make(findViewById(R.id.coordinator), msg, Snackbar.LENGTH_LONG)
+                .show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.action_settings:
+                showSnackBar("Se abren los ajustes");
+                return true;
+            case R.id.action_add:
+                showSnackBar("Añadir a contactos");
+                return true;
+            case R.id.action_favorite:
+                showSnackBar("Añadir a favoritos");
+                return true;
+            case android.R.id.home:
+                super.onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+
     }
 
 }

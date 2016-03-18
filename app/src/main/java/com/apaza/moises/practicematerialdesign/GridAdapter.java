@@ -1,9 +1,11 @@
 package com.apaza.moises.practicematerialdesign;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -15,10 +17,12 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class GridAdapter extends ArrayAdapter<Place>{
+public class GridAdapter extends ArrayAdapter<Place> implements View.OnClickListener{
 
+    protected Activity activity;
     public GridAdapter(Context context, List<Place> list){
         super(context, R.layout.grid_item, list);
+        this.activity = (Activity)context;
     }
 
     @Override
@@ -37,7 +41,7 @@ public class GridAdapter extends ArrayAdapter<Place>{
         ViewHolder holder;
         if(view == null){
             holder = new ViewHolder();
-            LayoutInflater layoutInflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater layoutInflater = activity.getLayoutInflater();//(LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = layoutInflater.inflate(R.layout.grid_item, null);
             holder.image = (ImageView)view.findViewById(R.id.image);
             holder.name = (TextView)view.findViewById(R.id.name);
@@ -56,6 +60,11 @@ public class GridAdapter extends ArrayAdapter<Place>{
         holder.address.setText(place.getAddress());
         holder.rating.setRating((float)place.getRating());
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 
     public class ViewHolder{

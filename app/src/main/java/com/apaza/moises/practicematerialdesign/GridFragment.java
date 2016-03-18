@@ -19,9 +19,10 @@ import java.util.List;
 
 import in.srain.cube.views.GridViewWithHeaderAndFooter;
 
-public class GridFragment extends Fragment implements GridViewWithHeaderAndFooter.OnItemClickListener{
+public class GridFragment extends Fragment implements AdapterView.OnItemClickListener{
     private static final String ARG_SECTION_NUMBER = "section_number";
-    GridViewWithHeaderAndFooter gridViewWithHeaderAndFooter;
+    private GridViewWithHeaderAndFooter gridViewWithHeaderAndFooter;
+    private GridAdapter gridAdapted;
 
     public static GridFragment newInstance(int sectionNumber){
         GridFragment gridFragment = new GridFragment();
@@ -41,26 +42,26 @@ public class GridFragment extends Fragment implements GridViewWithHeaderAndFoote
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         gridViewWithHeaderAndFooter = (GridViewWithHeaderAndFooter)view.findViewById(R.id.gridview);
-        setupGridView(gridViewWithHeaderAndFooter);
+        setupGridView();
         gridViewWithHeaderAndFooter.setOnItemClickListener(this);
 
         return view;
     }
 
-    private void setupGridView(GridViewWithHeaderAndFooter grid){
+    public void setupGridView(){
         int sectionNumber = getArguments().getInt(ARG_SECTION_NUMBER);
         switch(sectionNumber){
             case 1:
-                grid.addHeaderView(createHeaderView(6, Place.getListPlaces()));
-                grid.setAdapter(new GridAdapter(getActivity(), Place.getListPlaces()));
+                gridViewWithHeaderAndFooter.addHeaderView(createHeaderView(6, Place.getListPlaces()));
+                gridViewWithHeaderAndFooter.setAdapter(new GridAdapter(getActivity(), Place.getListPlaces()));
                 break;
             case 2:
-                grid.addHeaderView(createHeaderView(6, Place.getListFoods()));
-                grid.setAdapter(new GridAdapter(getActivity(), Place.getListFoods()));
+                gridViewWithHeaderAndFooter.addHeaderView(createHeaderView(3, Place.getListFoods()));
+                gridViewWithHeaderAndFooter.setAdapter(new GridAdapter(getActivity(), Place.getListFoods()));
                 break;
             case 3:
-                grid.addHeaderView(createHeaderView(6, Place.getListMuseums()));
-                grid.setAdapter(new GridAdapter(getActivity(), Place.getListMuseums()));
+                gridViewWithHeaderAndFooter.addHeaderView(createHeaderView(5, Place.getListMuseums()));
+                gridViewWithHeaderAndFooter.setAdapter(new GridAdapter(getActivity(), Place.getListMuseums()));
                 break;
         }
     }
@@ -94,13 +95,18 @@ public class GridFragment extends Fragment implements GridViewWithHeaderAndFoote
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        //Place place = (Place)gridViewWithHeaderAndFooter.getAdapter().getItem(position);
-        //Snackbar.make(view, "It is not place"+parent.getAdapter().getCount(), Snackbar.LENGTH_LONG).show();
-        Place place = new Place("Parque cretasico", "Lugar donde se puede ver dinosaurios", "Ruta 7 zona Fancesa", 4.2, R.drawable.places_tourist);
-        if(place != null)
-            DetailActivity.createInstance(getActivity(), place);
-        else{
-            Snackbar.make(view, "It is not place", Snackbar.LENGTH_LONG).show();
+        Place place = (Place) gridViewWithHeaderAndFooter.getOriginalAdapter().getItem(position);
+
+        try{
+            Snackbar.make(view, "Place = "+place.getName() + " position " + position, Snackbar.LENGTH_LONG).show();
+            if(place != null)
+                DetailActivity.createInstance(getActivity(), place);
+            else{
+                Snackbar.make(view, "It is not place", Snackbar.LENGTH_LONG).show();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
+
     }
 }
