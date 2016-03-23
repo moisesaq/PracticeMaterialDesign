@@ -76,7 +76,7 @@ public class GridFragment extends Fragment implements AdapterView.OnItemClickLis
         Place item = list.get(position);
 
         ImageView image = (ImageView) view.findViewById(R.id.image);
-        Glide.with(image.getContext()).load(item.getPathImage()).into(image);
+        Glide.with(image.getContext()).load(item.getImage()).into(image);
 
         TextView name = (TextView) view.findViewById(R.id.name);
         name.setText(item.getName());

@@ -50,7 +50,7 @@ public class DetailActivity extends AppCompatActivity {
         CollapsingToolbarLayout collapser = (CollapsingToolbarLayout) findViewById(R.id.collapser);
         collapser.setTitle(place.getName()); // Cambiar título
 
-        loadImageParallax(place.getPathImage());// Cargar Imagen
+        loadImageParallax(place.getImage());// Cargar Imagen
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

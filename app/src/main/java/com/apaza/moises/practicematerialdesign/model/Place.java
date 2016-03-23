@@ -12,14 +12,14 @@ public class Place implements Serializable{
     private String description;
     private String address;
     private double rating;
-    private int pathImage;
+    private int image;
 
-    public Place(String name, String description, String addres, double rating, int pathImage){
+    public Place(String name, String description, String address, double rating, int image){
         this.name = name;
         this.description = description;
-        this.address = addres;
+        this.address = address;
         this.rating = rating;
-        this.pathImage = pathImage;
+        this.image = image;
     }
 
     public String getName() {
@@ -58,12 +58,12 @@ public class Place implements Serializable{
         return this;
     }
 
-    public int getPathImage() {
-        return pathImage;
+    public int getImage() {
+        return image;
     }
 
-    public Place setPathImage(int pathImage) {
-        this.pathImage = pathImage;
+    public Place setImage(int image) {
+        this.image = image;
         return this;
     }
 

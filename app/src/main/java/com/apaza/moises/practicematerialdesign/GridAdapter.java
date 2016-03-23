@@ -5,13 +5,11 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.apaza.moises.practicematerialdesign.R;
 import com.apaza.moises.practicematerialdesign.model.Place;
 import com.bumptech.glide.Glide;
 
@@ -53,8 +51,8 @@ public class GridAdapter extends ArrayAdapter<Place> implements View.OnClickList
             holder = (ViewHolder)view.getTag();
         }
         Place place = this.getItem(position);
-        //holder.image.setImageResource(place.getPathImage());
-        Glide.with(getContext()).load(place.getPathImage()).into(holder.image);
+        //holder.image.setImageResource(place.getImage());
+        Glide.with(getContext()).load(place.getImage()).into(holder.image);
         holder.name.setText(place.getName());
         holder.description.setText(place.getDescription());
         holder.address.setText(place.getAddress());
