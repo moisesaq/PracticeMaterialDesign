@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         if (ab != null) {
             // Poner ícono del drawer toggle
             ab.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white_18dp);
-            ab.setDisplayHomeAsUpEnabled(true);
+            ab.setDisplayHomeAsUpEnabled(false);
         }
     }
 
@@ -67,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        menu.findItem(R.id.action_add).setVisible(false);
+        menu.findItem(R.id.action_favorite).setVisible(false);
         return true;
     }
 

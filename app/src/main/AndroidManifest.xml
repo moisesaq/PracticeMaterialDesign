@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_logo_parking"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
@@ -18,9 +18,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name=".model.PlaceProvider"
+            android:authorities="com.apaza.moises.practicematerialdesign.model.PlaceProvider"
+            android:exported="false" />
+
         <activity
             android:name=".DetailActivity"
             android:label="@string/title_activity_detail"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".tourism.PlaceActivity"
+            android:label="@string/title_activity_place"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
     </application>

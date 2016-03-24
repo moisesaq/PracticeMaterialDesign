@@ -16,4 +16,8 @@
         changing needs and desires, as the customer’s satisfaction,
         safety and enjoyment are particularly the focus of tourism businesses.
     </string>
+    <string name="title_activity_place">PlaceActivity</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
