@@ -5,7 +5,7 @@
 
 
     <ListView
-        android:id="@+id/listPlace"
+        android:id="@android:id/list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -16,6 +16,6 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Data not found"
-        android:id="@+id/empty"
+        android:id="@android:id/empty"
         android:layout_gravity="center" />
 </FrameLayout>

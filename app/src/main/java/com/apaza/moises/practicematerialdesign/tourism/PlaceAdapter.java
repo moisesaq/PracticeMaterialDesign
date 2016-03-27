@@ -2,9 +2,16 @@ package com.apaza.moises.practicematerialdesign.tourism;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
+
+import com.apaza.moises.practicematerialdesign.R;
+import com.apaza.moises.practicematerialdesign.model.PlaceContract;
 
 
 public class PlaceAdapter extends CursorAdapter {
@@ -14,11 +21,25 @@ public class PlaceAdapter extends CursorAdapter {
     }
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        return null;
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        return inflater.inflate(R.layout.grid_header, parent, false);
     }
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
+        ImageView image = (ImageView)view.findViewById(R.id.image);
+        image.setImageResource(cursor.getInt(cursor.getColumnIndex(PlaceContract.Columns.IMAGE)));
 
+        TextView name = (TextView)view.findViewById(R.id.name);
+        name.setText(cursor.getString(cursor.getColumnIndex(PlaceContract.Columns.NAME)));
+
+        TextView description = (TextView)view.findViewById(R.id.description);
+        description.setText(cursor.getString(cursor.getColumnIndex(PlaceContract.Columns.DESCRIPTION)));
+
+        TextView address = (TextView)view.findViewById(R.id.address);
+        address.setText(cursor.getString(cursor.getColumnIndex(PlaceContract.Columns.ADDRESS)));
+
+        RatingBar  rating = (RatingBar)view.findViewById(R.id.rating);
+        rating.setRating((float)cursor.getDouble(cursor.getColumnIndex(PlaceContract.Columns.RATING)));
     }
 }

@@ -6,7 +6,7 @@ import android.provider.BaseColumns;
 
 public class PlaceContract {
 
-    public final static String AUTHORITY = "com.apaza.moises.practicematerialdesign.model.PlaceContract";
+    public final static String AUTHORITY = "com.apaza.moises.practicematerialdesign.model.PlaceProvider";
 
     public final static String PLACE = "place";
 

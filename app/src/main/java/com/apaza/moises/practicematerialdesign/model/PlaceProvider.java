@@ -14,9 +14,10 @@ import android.text.TextUtils;
 public class PlaceProvider extends ContentProvider{
 
     private static final String DATA_BASE_NAME = "DBPlace";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
 
     private DataBaseHelper dataBaseHelper;
+
     @Override
     public boolean onCreate() {
         dataBaseHelper = new DataBaseHelper(getContext(), DATA_BASE_NAME, null, DB_VERSION);
