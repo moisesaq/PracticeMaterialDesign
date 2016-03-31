@@ -96,7 +96,6 @@ public class PlaceProvider extends ContentProvider{
 
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
-
         SQLiteDatabase db = dataBaseHelper.getWritableDatabase();
         int match = PlaceContract.uriMatcher.match(uri);
         int affected;

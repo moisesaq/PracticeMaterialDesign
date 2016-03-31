@@ -22,6 +22,10 @@ public class Place implements Serializable{
         this.image = image;
     }
 
+    public Place(){
+
+    }
+
     public String getName() {
         return name;
     }

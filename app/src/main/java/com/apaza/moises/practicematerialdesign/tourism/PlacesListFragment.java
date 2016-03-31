@@ -11,29 +11,16 @@ import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.apaza.moises.practicematerialdesign.R;
 import com.apaza.moises.practicematerialdesign.model.PlaceContract;
 
 public class PlacesListFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor>{
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
 
     private PlaceAdapter placeAdapter;
 
-    private OnFragmentInteractionListener mListener;
-
-    public static PlacesListFragment newInstance(String param1, String param2) {
-        PlacesListFragment fragment = new PlacesListFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private OnPlaceClickListener mListener;
 
     public PlacesListFragment() {
     }
@@ -41,10 +28,6 @@ public class PlacesListFragment extends ListFragment implements LoaderManager.Lo
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
         setHasOptionsMenu(true);
     }
 
@@ -61,7 +44,10 @@ public class PlacesListFragment extends ListFragment implements LoaderManager.Lo
         getLoaderManager().initLoader(0, null, this);
     }
 
-
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        mListener.onPlaceClick(id);
+    }
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
@@ -78,24 +64,18 @@ public class PlacesListFragment extends ListFragment implements LoaderManager.Lo
         placeAdapter.swapCursor(null);
     }
 
-    public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(Uri uri);
-    }
-
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+    public interface OnPlaceClickListener {
+        void onPlaceClick(long id);
     }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            mListener = (OnFragmentInteractionListener) activity;
+            mListener = (OnPlaceClickListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
+                    + " must implement OnPlaceClickListener");
         }
     }
 
