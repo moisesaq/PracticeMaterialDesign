@@ -12,4 +12,8 @@
     <dimen name="grid_view_padding">5dp</dimen>
     <dimen name="grid_item_image_size">90dp</dimen>
 
+    <dimen name="card_elevation">2dp</dimen>
+
+    <dimen name="margin_top_between_cards">16dp</dimen>
+
 </resources>
