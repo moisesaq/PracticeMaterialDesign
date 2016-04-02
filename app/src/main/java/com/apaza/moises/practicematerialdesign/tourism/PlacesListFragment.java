@@ -2,7 +2,6 @@ package com.apaza.moises.practicematerialdesign.tourism;
 
 import android.app.Activity;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
@@ -20,7 +19,7 @@ public class PlacesListFragment extends ListFragment implements LoaderManager.Lo
 
     private PlaceAdapter placeAdapter;
 
-    private OnPlaceClickListener mListener;
+    private OnPlaceListClickListener mListener;
 
     public PlacesListFragment() {
     }
@@ -46,7 +45,7 @@ public class PlacesListFragment extends ListFragment implements LoaderManager.Lo
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        mListener.onPlaceClick(id);
+        mListener.onPlaceItemClick(id);
     }
 
     @Override
@@ -64,18 +63,18 @@ public class PlacesListFragment extends ListFragment implements LoaderManager.Lo
         placeAdapter.swapCursor(null);
     }
 
-    public interface OnPlaceClickListener {
-        void onPlaceClick(long id);
+    public interface OnPlaceListClickListener {
+        void onPlaceItemClick(long id);
     }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            mListener = (OnPlaceClickListener) activity;
+            mListener = (OnPlaceListClickListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement OnPlaceClickListener");
+                    + " must implement OnPlaceListClickListener");
         }
     }
 

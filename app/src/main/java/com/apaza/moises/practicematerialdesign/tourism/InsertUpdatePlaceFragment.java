@@ -100,7 +100,7 @@ public class InsertUpdatePlaceFragment extends Fragment {
 
             return true;
         }
-        return false;
+        return super.onOptionsItemSelected(item);
     }
 
     private void saveData(){

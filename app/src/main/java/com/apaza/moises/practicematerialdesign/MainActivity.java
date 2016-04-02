@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.apaza.moises.practicematerialdesign.tourism.PlaceActivity;
+import com.apaza.moises.practicematerialdesign.tourism.PlaceSucreActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }else if(id == R.id.action_practice_provider){
-            startActivity(new Intent(this, PlaceActivity.class));
+            startActivity(new Intent(this, PlaceSucreActivity.class));
         }
 
         return super.onOptionsItemSelected(item);

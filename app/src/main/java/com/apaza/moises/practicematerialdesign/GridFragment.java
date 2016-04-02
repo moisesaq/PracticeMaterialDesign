@@ -87,7 +87,7 @@ public class GridFragment extends Fragment implements AdapterView.OnItemClickLis
         TextView address = (TextView) view.findViewById(R.id.address);
         address.setText(item.getAddress());
 
-        RatingBar ratingBar = (RatingBar) view.findViewById(R.id.rating);
+        RatingBar ratingBar = (RatingBar) view.findViewById(R.id.ratingBar);
         ratingBar.setRating((float)item.getRating());
 
         return view;

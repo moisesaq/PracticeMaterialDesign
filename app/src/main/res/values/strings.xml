@@ -26,4 +26,6 @@
     <string name="rating">Rating</string>
     <string name="address">Address</string>
     <string name="description_label">Description</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
 </resources>

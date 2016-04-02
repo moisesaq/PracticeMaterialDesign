@@ -45,7 +45,7 @@ public class GridAdapter extends ArrayAdapter<Place> implements View.OnClickList
             holder.name = (TextView)view.findViewById(R.id.name);
             holder.description = (TextView)view.findViewById(R.id.description);
             holder.address = (TextView)view.findViewById(R.id.address);
-            holder.rating = (RatingBar)view.findViewById(R.id.rating);
+            holder.rating = (RatingBar)view.findViewById(R.id.ratingBar);
             view.setTag(holder);
         }else{
             holder = (ViewHolder)view.getTag();

@@ -1,6 +1,5 @@
 package com.apaza.moises.practicematerialdesign.tourism;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -15,7 +14,8 @@ import android.view.View;
 
 import com.apaza.moises.practicematerialdesign.R;
 
-public class PlaceActivity extends AppCompatActivity implements PlacesListFragment.OnPlaceClickListener {
+public class PlaceSucreActivity extends AppCompatActivity implements PlacesListFragment.OnPlaceListClickListener,
+                                                            PlaceDetailFragment.OnDetailPlaceClickListener{
 
     private PlacesListFragment placesListFragment;
     public ActionBar actionBar;
@@ -58,14 +58,15 @@ public class PlaceActivity extends AppCompatActivity implements PlacesListFragme
     public void showFragment(Fragment fragment){
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.container, fragment, fragment.getClass().getSimpleName());
+        ft.addToBackStack(fragment.getClass().getSimpleName());
+        ft.replace(R.id.container, fragment);
         ft.commit();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_place, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -79,16 +80,21 @@ public class PlaceActivity extends AppCompatActivity implements PlacesListFragme
     }
 
     @Override
-    public void onPlaceClick(long id) {
-        showFragment(InsertUpdatePlaceFragment.newInstance(InsertUpdatePlaceFragment.UPDATE_ACTION, id));
+    public void onPlaceItemClick(long id) {
+        showFragment(PlaceDetailFragment.newInstance(id));
     }
 
     @Override
     public void onBackPressed(){
-        if(getFragmentManager().getBackStackEntryCount() > 1){
-            getFragmentManager().popBackStack();
+        if(getSupportFragmentManager().getBackStackEntryCount() > 1){
+            getSupportFragmentManager().popBackStack();
         }else{
             finish();
         }
+    }
+
+    @Override
+    public void onEditPlaceClick(long id) {
+        showFragment(InsertUpdatePlaceFragment.newInstance(InsertUpdatePlaceFragment.UPDATE_ACTION, id));
     }
 }
