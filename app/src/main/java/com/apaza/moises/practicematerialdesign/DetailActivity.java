@@ -106,8 +106,6 @@ public class DetailActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-
-
     }
 
 }

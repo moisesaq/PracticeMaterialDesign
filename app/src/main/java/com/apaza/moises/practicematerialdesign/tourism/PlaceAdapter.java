@@ -31,7 +31,7 @@ public class PlaceAdapter extends CursorAdapter {
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
         ImageView image = (ImageView)view.findViewById(R.id.image);
-        loadIMage(image, cursor.getInt(cursor.getColumnIndex(PlaceContract.Columns.IMAGE)));
+        loadImage(image, cursor.getInt(cursor.getColumnIndex(PlaceContract.Columns.IMAGE)));
         /*image.setImageResource(cursor.getInt(cursor.getColumnIndex(PlaceContract.Columns.IMAGE)));*/
 
         TextView name = (TextView)view.findViewById(R.id.name);
@@ -47,7 +47,7 @@ public class PlaceAdapter extends CursorAdapter {
         rating.setRating((float)cursor.getDouble(cursor.getColumnIndex(PlaceContract.Columns.RATING)));
     }
 
-    private void loadIMage(ImageView imageView, int id) {
+    private void loadImage(ImageView imageView, int id) {
         Glide.with(context)
                 .load(id)
                 .centerCrop()
